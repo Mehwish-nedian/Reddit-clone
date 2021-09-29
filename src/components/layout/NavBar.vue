@@ -1,37 +1,58 @@
 <template>
     <div class="navigation bg-grey-1 text-blue-grey-9">
-        <nav>
+        <nav class="navigation__bar">
             <ul class="navigation__list">
-                <router-link to="/hot" class="navigation__item">Hot</router-link>
-                <router-link to="/new" class="navigation__item">New</router-link>
-                <router-link to="/top" class="navigation__item">Top</router-link>
-                <router-link to="/rising" class="navigation__item">Rising</router-link>
+                <router-link to="/hot" class="navigation__item">
+                <q-btn unelevated rounded class='navigation__btn' icon="local_fire_department" label="Hot" />
+                </router-link>
+                <router-link to="/new" class="navigation__item">
+                <q-btn unelevated rounded class='navigation__btn' icon="brightness_5" label="New" />
+                </router-link>
+                <router-link to="/top" class="navigation__item">
+                <q-btn unelevated rounded class='navigation__btn' icon="file_upload" label="Top" />
+                </router-link>
+                <router-link to="/rising" class="navigation__item">
+                <q-btn unelevated rounded class='navigation__btn' icon="moving" label="Rising" />
+                </router-link>
             </ul>
       </nav> 
     </div>
 </template>
-<style scoped>
+<script>
+export default {
+
+}
+</script>
+<style lang='scss' scoped>
+@import '../../assets/scss/_variables.scss';
 .navigation{
-    margin-top: 2rem;
+    //margin-top: 2rem;
+    width: 100%;
+    &__bar{      
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &__list{    
+        list-style: none;
+        display: flex;
+    }
+    &__item{
+        text-decoration: none;
+        display: inline-block;
+        color: grey;
+        padding: 0.75rem 1.5rem;
+        border-radius: 10px;
+        border: none;
+        box-shadow: none;
+    }
+    &__btn{
+        border: none;
+    }
+    .router-link-active{
+        color: $color-primary;
+    }
 }
-ul{
-    list-style: none;
-    display: flex;
-}
-nav {
-  width: 60%;
-  margin: auto;
-  
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-a{
-    text-decoration: none;
-    display: inline-block;
-    color: grey;
-    padding: 0.75rem 1.5rem;
-    font-size: 2rem;
-    border: 1px solid transparent;
-}
+
 </style>

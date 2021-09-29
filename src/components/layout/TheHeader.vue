@@ -1,21 +1,48 @@
 <template>
-  <q-header elevated class="bg-grey-1 text-grey-7">
+  <q-header elevated class="header bg-grey-1 text-grey-7">
       <nav>
             <img class="logo" src="../../assets/images/Logo.png" alt="Logo">
       </nav>  
-      <div class="searchbar">
+      <span class="header__searchbar">
         <search-bar></search-bar>
-      </div>
+      </span>
+      <span class="header__side-btns">
+        <q-btn class="header__side-btns--login q-px-xl q-mx-sm" outline rounded color="primary" >Log in</q-btn>
+        <q-btn class="header__side-btns--signup q-px-xl q-mx-sm" unelevated rounded color="primary" >Sign up</q-btn>
+      </span>
     </q-header>
 </template>
 <script>
 import SearchBar from '../SearchBar.vue';
+//import BaseButton from '../BaseButton.vue';
 export default {
   components: {
-    SearchBar
+    SearchBar,
+   // BaseButton
   }
 }
 </script>
-<style scoped>
+    
+<style lang="scss" scoped>
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &__side-btns{
+    margin-right: 10%;
+    display: flex;
+    align-items: space-between;
+    &--login, &--signup{
+      text-transform: capitalize;
+      //padding: .2rem 3em;
+      
+    }
+    &--login{
+    }
+    &--signup{
+    }
+  }
+}
 
 </style>
