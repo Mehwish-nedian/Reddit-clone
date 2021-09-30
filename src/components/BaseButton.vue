@@ -16,12 +16,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
-//;
+@import '../assets/scss/_variables.scss';
 button{
-    background-color: $color-secondary;
+    background-color: $color-primary;
     color: white;
-    padding: 1.3% 4%;
+    width: 100px;
+    padding: 5% 7%;
     border: none;
+    border-radius: 30%;
 }
 </style>
