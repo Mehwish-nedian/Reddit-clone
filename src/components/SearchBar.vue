@@ -28,7 +28,7 @@ $bg-classroom: #232323;
     &__input{
         border-radius: 5px;
         height: 35px;
-        width: 30vw;
+        width: 90%;
         padding: 2px 23px 2px 50px;
         outline: 0;
         background-color: #DAE0E6;

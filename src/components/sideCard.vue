@@ -7,16 +7,18 @@
     <q-card-section class="q-pt-none">
         <card-list></card-list>
         <q-btn class="my-card-btn q-mx-auto q-my-sm" unelevated rounded color="primary" label="View all" />
-        
+        <bottom-navigation></bottom-navigation>
     </q-card-section>
     
 </q-card>
 </template>
 <script>
 import cardList from './sideCardList.vue';
+import bottomNavigation from './sideCardBottomNavigation.vue';
 export default {
     components:{
-      cardList
+      cardList,
+      bottomNavigation
     }
 }
 </script>

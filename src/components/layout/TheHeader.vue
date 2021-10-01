@@ -26,9 +26,12 @@ export default {
 <style lang="scss" scoped>
 .header{
   display: flex;
-  flex-direction: row;
+  //flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  &__searchbar{
+    flex-grow: 1;
+  }
   &__side-btns{
     margin-right: 10%;
     display: flex;
@@ -37,10 +40,6 @@ export default {
       text-transform: capitalize;
       //padding: .2rem 3em;
       
-    }
-    &--login{
-    }
-    &--signup{
     }
   }
 }
