@@ -3,8 +3,8 @@
       <q-card-section>
           <the-vote></the-vote>
       </q-card-section>
-      <q-card-section>
-        <div class="post-card__upper-part text-h6 q-mb-xs">
+      <q-card-section class="post-card__right">
+        <div class="post-card__upper-section text-h6 q-mb-xs">
             <div class="q-mr-sm post-card__profile">
                 <q-btn round>
                     <q-avatar size="42px">
@@ -19,13 +19,10 @@
             <div class="join-btn"><q-btn class="" rounded color="primary" icon="add" label="Join" /></div>
         </div>
         <div class="post-card__title">
-            <h3>The subreddit that’s all about Android games! 
-                Be part of an ever-growing community of gamers to geek out on various topics</h3>
+            <h3><slot name="title"></slot></h3>
         </div>
-      
-
-      <img class="post-card__image" src="https://cdn.quasar.dev/img/mountains.jpg">
-      
+        <slot name="card-text"></slot>
+        <slot name="post-image"></slot>
           <bottom-navigation></bottom-navigation>
       </q-card-section>  
     </q-card>
@@ -37,6 +34,9 @@ export default {
     components: {
         bottomNavigation,
         theVote
+    },
+    props: {
+        imgLink: String
     }
     
 }
@@ -44,7 +44,8 @@ export default {
 <style lang='scss' scoped>
 .post-card{
     display: flex;
-    &__upper-part{
+    text-align: left;
+    &__upper-section{
         display: flex;
         align-items: center;
     }
@@ -62,12 +63,15 @@ export default {
         }
     }
     &__image{
-        width: 100%;
-        
+        width: 100%;   
+    }
+    &__right{
+        flex-grow: 1;
     }
     .join-btn{
         button{
-            font-size: 1rem;
+            font-size: 1.3rem;
+            text-transform: lowercase;
         }
         margin-left: auto;
     }

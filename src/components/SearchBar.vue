@@ -20,7 +20,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../assets/scss/_variables.scss';
-$bg-classroom: #232323;
+
 .search{
     position: relative;
     display: flex;
@@ -30,8 +30,8 @@ $bg-classroom: #232323;
         height: 35px;
         width: 90%;
         padding: 2px 23px 2px 50px;
-        outline: 0;
-        background-color: #DAE0E6;
+        background-color: #F6F7F8;
+        border: 1px solid #ddd;
          
     }
     &__input:hover, &__input:focus{

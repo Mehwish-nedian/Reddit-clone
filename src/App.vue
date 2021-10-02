@@ -1,45 +1,42 @@
 <template>
   <q-layout class="bg-indigo-1 text-grey-7" view="lHh Lpr lFf">
     <the-header></the-header>
-
+    
     <q-page-container class="main-container">
-      <div class="left-container">
-        <nav-bar></nav-bar>
-        <router-view></router-view>
-      </div>
-      <div class="right-container">
-        <side-card></side-card>
+      <trending-section></trending-section>
+      <div class="main-container__posts">
+        <div class="left-container">
+           <h2 class="q-my-md heading-popular-posts">Popular Posts</h2>
+          <nav-bar></nav-bar>
+          <router-view></router-view>
+        </div>
+        <div class="right-container">
+          <side-card></side-card>
+          <premium-card></premium-card>
+        </div>
       </div>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { ref } from 'vue'
 
 import TheHeader from './components/layout/TheHeader.vue';
+import trendingSection from './components/trendingTodaySection.vue';
 import NavBar from './components/layout/NavBar.vue';
 import SideCard from './components/sideCard.vue';
+import premiumCard from './components/buyPremiumCard.vue';
+
 export default {
   components: {
     TheHeader,
     NavBar,
-    SideCard
+    SideCard,
+    premiumCard,
+    trendingSection
   },
 
-  data(){
-    return{
-      error : null
-    }
-  },
-  
-
-
-  setup () {
-    return {
-      leftDrawerOpen: ref(false)
-    }
-  }
+ 
 }
 </script>
 <style lang="scss">
@@ -69,15 +66,30 @@ html{
 .main-container{
   max-width: 1100px;
   margin: 5rem auto;
-  text-align: center;
-  display: flex;
+ 
+  &__posts{
+     text-align: center;
+     display: flex;
+  }
 }
 .left-container{
   width: 70rem;
   margin-right: 3rem;
+  .heading-popular-posts{
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.7;
+  }
 }
 .right-container{
   width: 30rem;
+  display: flex;
+  flex-direction: column;
+  &>*:not(:first-child){
+    margin-top: 1.5rem;
+    width: 100%;
+  }
 }
 /**/
 </style>
