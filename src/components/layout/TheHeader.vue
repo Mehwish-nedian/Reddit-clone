@@ -1,10 +1,10 @@
 <template>
   <q-header elevated class="header bg-grey-1 text-grey-7">
       <nav>
-            <img class="logo" src="../../assets/images/Logo.png" alt="Logo">
+        <img class="logo" src="../../assets/images/Logo.png" alt="Logo">
       </nav>  
       <span class="header__searchbar">
-        <search-bar></search-bar>
+        <search-bar icon placeholder="Search Reddit"></search-bar>
       </span>
       <span class="header__side-btns">
         <q-btn class="header__side-btns--login q-px-xl q-mx-sm" outline rounded color="primary" >Log in</q-btn>

@@ -25,5 +25,6 @@
     &__icon-down:hover{
         color: #027BE3;
     }
+    
 }
 </style>

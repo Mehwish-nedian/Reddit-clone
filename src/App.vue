@@ -4,15 +4,18 @@
     
     <q-page-container class="main-container">
       <trending-section></trending-section>
+      <h2 class="q-my-md heading-popular-posts">Popular Posts</h2>
       <div class="main-container__posts">
+        
         <div class="left-container">
-           <h2 class="q-my-md heading-popular-posts">Popular Posts</h2>
+          <create-post-bar></create-post-bar>
           <nav-bar></nav-bar>
           <router-view></router-view>
         </div>
         <div class="right-container">
           <side-card></side-card>
           <premium-card></premium-card>
+          <side-home-card></side-home-card>
         </div>
       </div>
     </q-page-container>
@@ -26,6 +29,8 @@ import trendingSection from './components/trendingTodaySection.vue';
 import NavBar from './components/layout/NavBar.vue';
 import SideCard from './components/sideCard.vue';
 import premiumCard from './components/buyPremiumCard.vue';
+import createPostBar from './components/createPostBar.vue';
+import SideHomeCard from './components/SideHomeCard.vue';
 
 export default {
   components: {
@@ -33,7 +38,9 @@ export default {
     NavBar,
     SideCard,
     premiumCard,
-    trendingSection
+    trendingSection,
+    createPostBar,
+    SideHomeCard
   },
 
  
@@ -55,9 +62,8 @@ html{
     font-weight: 300;
     line-height: 1.6;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: $color-bg-grey;
+    background-color: #DAE0E6;
 }
-
 .logo{
     height: 4.5rem;
     float: left;
@@ -66,6 +72,14 @@ html{
 .main-container{
   max-width: 1100px;
   margin: 5rem auto;
+  .heading-popular-posts{
+    //flex-basis: 100%;
+   //flex-grow: 1;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.7;
+  }
  
   &__posts{
      text-align: center;
@@ -75,12 +89,7 @@ html{
 .left-container{
   width: 70rem;
   margin-right: 3rem;
-  .heading-popular-posts{
-    text-align: left;
-    font-size: 1.4rem;
-    font-weight: bold;
-    line-height: 1.7;
-  }
+  
 }
 .right-container{
   width: 30rem;

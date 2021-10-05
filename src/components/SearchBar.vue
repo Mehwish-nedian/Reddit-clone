@@ -1,11 +1,15 @@
 <template>
     <form class="search" action="" method="post" @submit.prevent="onSubmit">
-      <q-icon class="search__icon" name="search" />
-      <input class="search__input" v-model="text" placeholder="Search Reddit" />
+      <q-icon v-if="icon" class="search__icon" name="search"/>
+      <input :class="{addPadding: icon, search__input: true}" v-model="text" :placeholder= placeholder />
     </form>
 </template>
 <script>
 export default {
+    props: {
+        placeholder: String,
+        icon: Boolean
+    },
     data(){
         return{
             text:''
@@ -29,10 +33,13 @@ export default {
         border-radius: 5px;
         height: 35px;
         width: 90%;
-        padding: 2px 23px 2px 50px;
+        padding: 2px 23px 2px 10px;
         background-color: #F6F7F8;
         border: 1px solid #ddd;
          
+    }
+    .addPadding{
+        padding: 2px 23px 2px 50px;
     }
     &__input:hover, &__input:focus{
         border: 1.5px solid $color-primary;

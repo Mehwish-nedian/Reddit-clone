@@ -23,6 +23,7 @@
         </div>
         <slot name="card-text"></slot>
         <slot name="post-image"></slot>
+        <h3><slot name="video"></slot></h3>
           <bottom-navigation></bottom-navigation>
       </q-card-section>  
     </q-card>
