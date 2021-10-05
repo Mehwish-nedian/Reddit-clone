@@ -1,14 +1,15 @@
 <template>
     <form class="search" action="" method="post" @submit.prevent="onSubmit">
       <q-icon v-if="icon" class="search__icon" name="search"/>
-      <input :class="{addPadding: icon, search__input: true}" v-model="text" :placeholder= placeholder />
+      <input :class="{addPadding: icon, search__input: true}" v-model="text" :placeholder= placeholder :onfocus='goToCreatePost'/>
     </form>
 </template>
 <script>
 export default {
     props: {
         placeholder: String,
-        icon: Boolean
+        icon: Boolean,
+        focus: Boolean
     },
     data(){
         return{
@@ -18,6 +19,12 @@ export default {
     methods:{
         onSubmit(){
             console.log('Submit');
+        },
+        goToCreatePost(){
+            if(this.focus){
+                console.log(this.$router);
+                this.$router.push('/submit')
+            }
         }
     }
 }

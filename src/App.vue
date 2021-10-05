@@ -1,23 +1,8 @@
 <template>
   <q-layout class="bg-indigo-1 text-grey-7" view="lHh Lpr lFf">
-    <the-header></the-header>
-    
+    <the-header></the-header>    
     <q-page-container class="main-container">
-      <trending-section></trending-section>
-      <h2 class="q-my-md heading-popular-posts">Popular Posts</h2>
-      <div class="main-container__posts">
-        
-        <div class="left-container">
-          <create-post-bar></create-post-bar>
-          <nav-bar></nav-bar>
-          <router-view></router-view>
-        </div>
-        <div class="right-container">
-          <side-card></side-card>
-          <premium-card></premium-card>
-          <side-home-card></side-home-card>
-        </div>
-      </div>
+      <router-view></router-view>     
     </q-page-container>
   </q-layout>
 </template>
@@ -25,25 +10,24 @@
 <script>
 
 import TheHeader from './components/layout/TheHeader.vue';
-import trendingSection from './components/trendingTodaySection.vue';
+/*import trendingSection from './components/trendingTodaySection.vue';
 import NavBar from './components/layout/NavBar.vue';
 import SideCard from './components/sideCard.vue';
-import premiumCard from './components/buyPremiumCard.vue';
-import createPostBar from './components/createPostBar.vue';
-import SideHomeCard from './components/SideHomeCard.vue';
+import premiumCard from './components/buyPremiumCard.vue';*/
+//import createPostBar from './components/createPostBar.vue';
+//import SideHomeCard from './components/SideHomeCard.vue';*/
 
 export default {
   components: {
     TheHeader,
-    NavBar,
+   // createPostBar
+    /*NavBar,
     SideCard,
     premiumCard,
     trendingSection,
     createPostBar,
-    SideHomeCard
+    SideHomeCard*/
   },
-
- 
 }
 </script>
 <style lang="scss">

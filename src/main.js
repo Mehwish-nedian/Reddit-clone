@@ -9,7 +9,7 @@ import NewPage from './pages/New.vue';
 import HotPage from './pages/Hot.vue';
 import RisingPage from "./pages/Rising.vue";
 import TopPage from './pages/Top.vue';
-//import textEditor from './pages/TextEditor.vue';
+import CreatePost from './pages/CreatePost.vue';
 
 import { Quasar } from 'quasar'
 import quasarUserOptions from './quasar-user-options'
@@ -37,6 +37,10 @@ const router = createRouter({
       path: "/rising",
       component: RisingPage
     },
+    {
+      path: '/submit',
+      component: CreatePost
+    }
     
   ]
 });
