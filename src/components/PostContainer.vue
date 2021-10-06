@@ -12,7 +12,7 @@
 </template>
 <script>
 import Navbar from './layout/NavBar.vue';
-import createPostBar from './createPostBar.vue';
+import createPostBar from './createPost/createPostBar.vue';
 //import postCard from './postCard.vue';
 import sideCard from './sideCard.vue';
 export default {

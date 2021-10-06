@@ -1,84 +1,63 @@
 <template>
 
-  <div class="q-mb-md createPost__heading">
+  <div class="createPost__header">
     <h4 class="q-mb-md">Create a post</h4>
-    <hr>
+    <q-btn flat rounded color="primary">Drafts 
+      <span class="drafts-number">0</span>
+    </q-btn>
   </div>
+  <hr class="q-mb-md">
   <div class="bg-grey-1 q-pb-lg createPost">
-  <div class="createPost__navigation">
-      <div class="nav-item" @click.stop="clickNav($event)">
-        <q-icon class="nav-item__icon q-mr-md" size="3rem" name="article" />
-        <p>Posts</p>
-      </div>
-      <div class="nav-item" @click="clickNav($event)">
-        <q-icon class="nav-item__icon q-mr-md" size="3rem" name="article" />
-        <p>Images &amp; Videos</p>
-      </div>
-      <div class="nav-item" @click="clickNav($event)">
-        <q-icon class="nav-item__icon q-mr-md" size="3rem" name="article" />
-        <p>Link</p>
-      </div>
-      <div class="nav-item" @click="clickNav($event)">
-        <q-icon class="nav-item__icon q-mr-md" size="3rem" name="article" />
-        <p>Poll</p>
-      </div>
-  </div>
-  <div class="q-mx-lg createPost__title">
-     <q-input class="q-pa-none q-ma-none"  outlined v-model="text" :dense="dense" placeholder="Title"/>
-  </div>
-
-    <div class="txt-editor q-pa-md q-gutter-sm">
-      <q-editor placeholder="Text (optional)" v-model="editor" min-height="5rem" />
+  <top-navigation></top-navigation>
+  <div class="nav-content-area">
+    <div class="q-mx-lg createPost__title">
+      <q-input class="q-pa-none q-ma-none"  outlined v-model="text" :dense="dense" placeholder="Title"/>
     </div>
+    <div v-if="postSelected" class="txt-editor q-pa-md q-gutter-sm">
+      <q-editor placeholder="Text (optional)" v-model="editor" min-height="25rem" />
+    </div>
+    <div v-else-if="mediaSelected" class="q-pa-md q-gutter-sm">
+      <div class="image__drop">
+        Drag and drop images or upload
+      </div>
+    </div>
+    <div v-else-if="linkSelected" class="q-pa-md q-gutter-sm">
+      <div class="link__input">
+        <q-input class="q-pa-none q-ma-none"  outlined v-model="text" :dense="dense" placeholder="Url"/>
+      </div>
+    </div>
+  </div>
+  <create-post-bottom-navigation></create-post-bottom-navigation>
 </div>
 </template>
 <script>
+import topNavigation from '../components/createPost/topNavigation.vue';
+import createPostBottomNavigation from '../components/createPost/createPostBottomNavigation.vue';
 export default {
-  data(){
-    return {
-      editor: ''
-    }
+  components: {
+    createPostBottomNavigation,
+    topNavigation
   },
-  methods: {
-    clickNav(e){
-      e.stopPropagation();
-      console.log(e.target)
-     /* if(e.target.classList.contains('nav-item')){
-        e.target.classList.add('clicked');
-      }*/
-      
+  data(){
+    return{
+      editor: null
     }
   }
 }
 </script>
 <style lang='scss' scoped>
 .createPost{
-  &__heading{
-    
-  }
-  &__navigation{
+  &__header{
     display: flex;
-    .nav-item{
-      display: flex;  
-      align-items: center;
-      justify-content: center;
-      flex-basis: 25%;
-      margin-bottom: 2rem;
-      padding: 2rem 0;
-      cursor: pointer;
-      &__icon{
-        
-      }
-    }
-    .nav-item:hover{
-      background-color: #f2f8fc;;
-      //background-color: rgba(0,121,211,0.1);
-    }
-    .clicked{
-      color: blue;
-      border-bottom: 2px solid blue
+    justify-content: space-between;
+    .drafts-number{
+      background-color: gray;
+      color: white;
+      padding: .01rem .2rem;
+      margin-left: .7rem;
     }
   }
+
 }
 
 .txt-editor{
