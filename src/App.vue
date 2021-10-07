@@ -10,23 +10,10 @@
 <script>
 
 import TheHeader from './components/layout/TheHeader.vue';
-/*import trendingSection from './components/trendingTodaySection.vue';
-import NavBar from './components/layout/NavBar.vue';
-import SideCard from './components/sideCard.vue';
-import premiumCard from './components/buyPremiumCard.vue';*/
-//import createPostBar from './components/createPostBar.vue';
-//import SideHomeCard from './components/SideHomeCard.vue';*/
 
 export default {
   components: {
     TheHeader,
-   // createPostBar
-    /*NavBar,
-    SideCard,
-    premiumCard,
-    trendingSection,
-    createPostBar,
-    SideHomeCard*/
   },
 }
 </script>
@@ -40,12 +27,11 @@ export default {
     box-sizing: border-box;
 }
 
-
 html{
     font-size: 62.5%;
     font-weight: 300;
     line-height: 1.6;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #DAE0E6;
 }
 .logo{
@@ -54,11 +40,11 @@ html{
     margin: 0 5rem 0 1rem;
 }
 .main-container{
+  display: flex;
+  justify-content: space-around;
   max-width: 1100px;
   margin: 5rem auto;
   .heading-popular-posts{
-    //flex-basis: 100%;
-   //flex-grow: 1;
     text-align: left;
     font-size: 1.4rem;
     font-weight: bold;
@@ -84,5 +70,4 @@ html{
     width: 100%;
   }
 }
-/**/
 </style>

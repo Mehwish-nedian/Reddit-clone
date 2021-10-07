@@ -30,8 +30,6 @@ export default {
     &__bg-img{
         height: 4rem;
         background-image: url('../assets/images/bluebg.jpeg');
-        //margin-left: -1rem;
-        //width: 110%;
     }
     &__icon{
         img{
@@ -40,9 +38,6 @@ export default {
         top: 2rem;
         left: 1rem;
         }
-    }
-    &__title{
-        //margin-left: 5rem;
     }
     &__text{
         font-size: 1.3rem;
