@@ -1,7 +1,6 @@
 <template>
     <post-container>
     <template v-slot:posts>
-        
         <post-card >
           <template v-slot:title>
           The subreddit that’s all about Android games! 
@@ -16,9 +15,6 @@
         <p class="q-my-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa quod, aperiam tempore provident saepe rem maxime qui reiciendis</p>
       </template>
     </post-card>
-
-   
-
     </template>
   </post-container>
 </template>

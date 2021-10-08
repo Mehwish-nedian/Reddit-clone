@@ -1,8 +1,8 @@
 <template>
  <div class="container">
     <div class="left-container">
-        <navbar></navbar>
         <create-post-bar></create-post-bar>
+        <navbar></navbar>   
         <slot name="posts"></slot>
     </div>
     <div class="right-container">
@@ -17,7 +17,6 @@
 <script>
 import Navbar from './layout/NavBar.vue';
 import createPostBar from './createPost/createPostBar.vue';
-//import postCard from './postCard.vue';
 import sideCard from './sideCard.vue';
 import premiumCard from './buyPremiumCard.vue';
 import homeCard from './SideHomeCard.vue';
@@ -31,7 +30,6 @@ export default {
         premiumCard,
         homeCard,
         helpCard
-        //postCard
     }
 }
 </script>
@@ -45,7 +43,7 @@ export default {
     text-transform: capitalize;
     margin: 2rem auto;
     font-weight: bold;
-    position: fixed;
+    position: sticky;
     bottom: 0;
 }
 </style>

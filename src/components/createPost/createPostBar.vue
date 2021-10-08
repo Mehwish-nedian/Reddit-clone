@@ -1,5 +1,5 @@
 <template>
-    <div class="create-post bg-grey-1 q-my-md">
+    <div class="create-post bg-grey-1 q-mb-md">
        <div class="create-post__icon create-post__icon--posts"> 
             <q-icon size="4rem" name="bi bi-reddit"/>
         </div>       

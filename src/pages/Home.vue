@@ -52,7 +52,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.post-card__image{
-  width: 100%;
-}
+
 </style>
