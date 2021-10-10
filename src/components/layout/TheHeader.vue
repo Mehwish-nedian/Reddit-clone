@@ -15,7 +15,7 @@
       <sign-in-dialog signin title="Login">
       </sign-in-dialog>
     </q-dialog>
-    <q-dialog class="dialog" v-model="showSignupDialog">
+    <q-dialog @signUp="gotosignup" class="dialog" v-model="showSignupDialog">
       <sign-in-dialog title="Sign up"></sign-in-dialog>
     </q-dialog>
 </template>
@@ -33,6 +33,13 @@ export default {
   components: {
     SearchBar,
     SignInDialog
+  },
+  methods: {
+    gotosignup(){
+      this.showSigninDialog = false;
+      this.showSignupDialog = true;
+      console.log('Working emit');
+    }
   }
 }
 </script>
