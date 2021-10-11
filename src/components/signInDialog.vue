@@ -1,5 +1,5 @@
 <template>
-    <q-card class="popup-card" style="width: 800px; max-width: 80vw;">
+    <q-card class="popup-card" style="width: 800px; max-width: 80vw; height: 700px;">
         <div class="popup__image">
             <img src="../assets/images/dialog-img.jpg" alt="">
         </div>
@@ -10,16 +10,20 @@
             </q-card-section>
             <q-card-section>
             <div class="popup__txt">    
-                <h4 class="q-mb-sm">{{title}}</h4>
-                <p>By continuing, you agree to our <a class="link" href="#">User Agreement</a> and <a class="link" href="#">Privacy Policy.</a></p>
+                <h4 v-if="signIn" class="q-mb-sm">Login</h4>
+                 <h4 v-else class="q-mb-sm">Sign up</h4>
+                <p>By continuing, you agree to our <a class="link" href="#">User Agreement</a> and <a class="link" href="#">Privacy Policy.</a></p>               
                 <form class="login-form q-mt-xl">
-                    <q-input v-if="!signin" dense class="input q-my-md" outlined v-model="text" label="Email" ></q-input>
-                    <q-input v-if="signin" dense class="input q-my-md" outlined v-model="text" label="Username" ></q-input>
-                    <q-input v-if="signin" class="input" dense outlined v-model="text" label="Password"></q-input>
+                    <q-btn class="q-mb-md q-py-sm continue_btn" outline color="primary" label="Continue with google" icon="thumb_up" />
+                    <q-btn class="q-mb-md q-py-sm continue_btn" outline color="primary" label="Continue with apple" icon="thumb_up" />
+                    <q-input v-if="!signIn" dense class="input q-my-md" outlined v-model="text" label="Email" ></q-input>
+                    <q-input v-if="signIn" dense class="input q-my-md" outlined v-model="text" label="Username" ></q-input>
+                    <q-input class="input" dense outlined v-model="text" label="Password"></q-input>
                     <q-btn class="btn q-my-md" unelevated rounded color="primary" :label="title"/>
-                    <p v-if="signin" class="q-mb-xl q-mt-md"> Forgot your <a class="link" href="#">username</a> or <a class="link" href="#">password</a> ? </p>
-                    <p v-if="signin" class="q-my-sm">New to redditor? <a href="#" @click="gotoSignup" class="link" >SIGN UP</a></p>
-                    <p v-else>Already have an account <a class="link" href="#">Log in</a></p>
+                    
+                    <p v-if="signIn" class="q-mt-md"> Forgot your <a class="link" href="#">username</a> or <a class="link" href="#">password</a> ? </p>
+                    <p v-else>Already have an account <q-btn unelevated class="q-px-xs link"  @click="gotoLoginScreen">Log in</q-btn></p>
+                    <p v-if="signIn" class="txt q-my-sm">New to redditor? <q-btn  unelevated @click="gotoSignup" class="q-px-xs link" >SIGN UP</q-btn></p>
                 </form>
             </div>
             </q-card-section>
@@ -33,23 +37,39 @@ export default {
         signin: Boolean,
         title: String
     },
+    data(){
+        return {
+            signIn: this.signin,
+            
+        }
+    },
+    created(){
+        console.log(this.signin);
+        console.log(this.signIn);
+    },
     methods: {
         gotoSignup(){
             this.$emit('signUp');
-            console.log('Emit working...');
+            this.signIn = false;
+        },
+        gotoLoginScreen(){
+            this.signIn = true;
         }
     }
 }
 </script>
 <style lang='scss' scoped>
 .popup__image{ 
-    height: 100%;
+    height: 200px;
     clip-path: polygon(0 0, 90% 0, 90% 90%, 0 100%);
 }
 .btn{
         text-transform: capitalize;
         width: 100%;
     }
+.txt{
+    font-size: 1rem;
+}
 .popup-card{
     display: flex;  
     overflow: hidden;  
@@ -57,6 +77,9 @@ export default {
 .link{
     color: $color-primary;
     text-decoration: none;
+}
+.link:hover{
+    background-color: white !important;
 }
 .popup{
     float: right;
@@ -77,5 +100,12 @@ export default {
 
 .login-form{
        width: 50%;
+       .continue_btn{
+           width: 30rem;
+       }
+       .continue_btn:hover{
+           background-color: $color-primary !important;
+           color: white !important;
+       }
    }
 </style>

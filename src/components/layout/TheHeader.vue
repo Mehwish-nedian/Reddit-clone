@@ -47,11 +47,9 @@ export default {
 <style lang="scss" scoped>
 .dialog{
   display: flex;
+  height: 20rem !important;
 }
-.popup__image{
-  background-image: url('../../assets/images/bluebg.jpeg');
-  
-}
+
 .header{
   display: flex;
   justify-content: space-between;
